@@ -1,114 +1,190 @@
-Muath’s Contributions to the Project
+<h1>Sha’eerah – Hajj Nutrition & Inspection Management System</h1>
 
-• Designed and implemented core domain models and database structure, including:
-	• Pilgrim
-	• Campaign
-	• Inspector
-	• Violation
-	• Objection
-	• Designing the complete Database Diagram and defining entity relationships
+<p>
+Sha’eerah is a backend system designed to manage pilgrim nutrition, kitchen compliance,
+and inspection workflows during the Hajj season.
+</p>
 
-• Implemented full business logic for violations and objections, including:
-	•	Linking violations to inspectors and kitchens
-	•	Allowing only one objection per violation
-	•	Approving and rejecting objections with proper status handling
-	•	Automatically closing violations when objections are approved
+<hr/>
 
-• Developed violation enforcement rules, including:
-	•	Automatically suspending a kitchen when violations exceed a defined threshold
-	•	Managing violation lifecycle (open, close, reopen)
+<h2>Team Contributions</h2>
 
-• Built and integrated the emergency reporting feature using n8n, including:
-	•	Designing the n8n workflow for emergency cases
-	•	Creating a dedicated backend service to communicate with n8n
-	•	Sending real-time emergency campaign reports to admins via a Telegram bot
-	•	Broadcasting emergency messages to all admins using their stored Telegram chat IDs
+<!-- ================= Muath ================= -->
+<h3>Muath’s Contributions</h3>
+<ul>
+  <li>Designed and implemented core domain models and database structure:
+    <ul>
+      <li>Pilgrim</li>
+      <li>Campaign</li>
+      <li>Inspector</li>
+      <li>Violation</li>
+      <li>Objection</li>
+    </ul>
+  </li>
 
-• Implemented admin Telegram integration, including:
-	•	Storing Telegram chatId in the Admin model
-	•	Providing an endpoint to retrieve all admin chat IDs for notifications
-	•	Linking backend data with n8n Telegram nodes dynamically
+  <li>Designed the complete database diagram and defined entity relationships.</li>
 
+  <li>Implemented full business logic for violations and objections:
+    <ul>
+      <li>Linking violations to inspectors and kitchens</li>
+      <li>Allowing only one objection per violation</li>
+      <li>Approving and rejecting objections with proper status handling</li>
+      <li>Automatically closing violations when objections are approved</li>
+    </ul>
+  </li>
 
-Rawan’s Contributions to the Project
-• Models, Services and Controllers: 
-Kitchen
-• Provides full CRUD operations
-• Includes additional endpoints
-• Generates summarized kitchen reports
-• Output:
-KitchenReportDTO
+  <li>Developed violation enforcement rules:
+    <ul>
+      <li>Automatically suspending kitchens when violations exceed a defined threshold</li>
+      <li>Managing violation lifecycle (open, close, reopen)</li>
+    </ul>
+  </li>
 
-Meal
-• Provides full CRUD operations
-• Includes additional endpoints
+  <li>Built and integrated the emergency reporting feature using n8n:
+    <ul>
+      <li>Designed n8n workflows for emergency cases</li>
+      <li>Created a backend service to communicate with n8n</li>
+      <li>Sent real-time emergency reports to admins via Telegram bot</li>
+      <li>Broadcasted emergency messages to all admins using stored Telegram chat IDs</li>
+    </ul>
+  </li>
 
-Rating
-• Handles kitchen evaluations
-• Provides full CRUD operations
+  <li>Implemented Admin Telegram integration:
+    <ul>
+      <li>Stored Telegram chatId in Admin model</li>
+      <li>Provided endpoints to retrieve admin chat IDs</li>
+      <li>Linked backend data dynamically with n8n Telegram nodes</li>
+    </ul>
+  </li>
+</ul>
 
+<hr/>
 
-• Services:
-Email Service
-• Sends automated email notifications
-• Notifies the pilgrim when they are successfully registered in a campaign
-• Includes registration confirmation details such as campaign information
+<!-- ================= Rawan ================= -->
+<h3>Rawan’s Contributions</h3>
 
+<ul>
+  <li><strong>Kitchen</strong>
+    <ul>
+      <li>Full CRUD operations</li>
+      <li>Additional endpoints</li>
+      <li>Summarized kitchen reports</li>
+      <li>Output: KitchenReportDTO</li>
+    </ul>
+  </li>
 
-• AI:
-Multi-Language Health Advice
--Provides AI-generated health and nutrition advice
--Supports multiple languages
--Endpoint:
-GET /advice/{lang}
--Output:
-PilgrimAdviceDTO
+  <li><strong>Meal</strong>
+    <ul>
+      <li>Full CRUD operations</li>
+      <li>Additional endpoints</li>
+    </ul>
+  </li>
 
-Campaign Health Risk Prediction
-• Analyzes campaign-level health data
-• Predicts potential health risks
-• Provides preventive recommendations
-• Endpoint:
-GET /risk/{campaignId}
--Output:
-CampaignRiskDTO
+  <li><strong>Rating</strong>
+    <ul>
+      <li>Kitchen evaluations</li>
+      <li>Full CRUD operations</li>
+    </ul>
+  </li>
 
-Turki’s Contributions to the Project
-•	Designed and wrote the email notification content and HTML layout, including:
-	Custom HTML email templates
-	Clear Arabic notification messages
-	Proper formatting and styling for system emails
-•	Implemented the WhatsApp notification service, including:
-	Creating a dedicated WhatsApp service
-	Sending real-time notifications for system events
-•	Structuring clear and readable WhatsApp messages
-•	Added and managed DTOs for the Objection workflow, including:
-	DTO for submitting an objection (reason only)
-	DTO for approving and rejecting objections
-	DTOs for objection responses and reports
-	Ensuring clean request/response separation using DTOs
+  <li><strong>Email Service</strong>
+    <ul>
+      <li>Sends automated email notifications</li>
+      <li>Notifies pilgrims upon successful campaign registration</li>
+      <li>Includes campaign details in confirmation emails</li>
+    </ul>
+  </li>
 
+  <li><strong>AI – Multi-Language Health Advice</strong>
+    <ul>
+      <li>Generates AI-based general health and nutrition advice</li>
+      <li>Supports multiple languages</li>
+      <li>Endpoint: <code>GET /advice/{lang}</code></li>
+      <li>Output: PilgrimAdviceDTO</li>
+    </ul>
+  </li>
 
-•	Designed the project logo and visual identity, including:
-	Creating the logo concept
-Aligning branding with the project theme
-Using the logo consistently in the presentation
-•	Implemented the following core system endpoints:
-Admin Endpoints
-•	PUT /activate-kitchen/{id}
-•	PUT /suspend-kitchen/{id}
-•	PUT /assign-kitchens/{inspectorId}
-•	PUT /reject-kitchen/{kitchenId}
-Reports & AI Endpoints
-•	GET /approval-report
-(Objection approval statistics report)
-•	POST /ai/meal/validate-for-pilgrim
-(AI-based meal validation using pilgrim health records)
-•	POST /ai/inspectors/evaluate-performance/{inspectorId}
-(AIInspectorPerformanceService)
-Campaign Management Endpoints
-•	PUT /add-pilgrim/{pilgrimId}/{campaignId}
-•	PUT /close-registration/{campaignId}
-Health & Risk Classification Endpoints
-•	GET /classify-risk/{pilgrimId}
-(HealthRecord risk classification)
+  <li><strong>AI – Campaign Health Risk Prediction</strong>
+    <ul>
+      <li>Analyzes campaign-level health data</li>
+      <li>Predicts potential health risks</li>
+      <li>Provides preventive recommendations</li>
+      <li>Endpoint: <code>GET /risk/{campaignId}</code></li>
+      <li>Output: CampaignRiskDTO</li>
+    </ul>
+  </li>
+</ul>
+
+<hr/>
+
+<!-- ================= Turki ================= -->
+<h3>Turki’s Contributions</h3>
+
+<ul>
+  <li>Designed and wrote the email notification content and HTML layout:
+    <ul>
+      <li>Custom HTML email templates</li>
+      <li>Clear Arabic notification messages</li>
+      <li>Consistent formatting and styling</li>
+    </ul>
+  </li>
+
+  <li>Implemented the WhatsApp notification service:
+    <ul>
+      <li>Dedicated WhatsApp service</li>
+      <li>Real-time system notifications</li>
+      <li>Clear and readable message formatting</li>
+    </ul>
+  </li>
+
+  <li>Added and managed DTOs for the Objection workflow:
+    <ul>
+      <li>Objection submission DTO (reason only)</li>
+      <li>Objection approval and rejection DTOs</li>
+      <li>Reporting DTOs</li>
+    </ul>
+  </li>
+
+  <li>Designed the project logo and visual identity.</li>
+</ul>
+
+<hr/>
+
+<h2>Core Endpoints Implemented by Turki</h2>
+
+<h3>Admin Endpoints</h3>
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Method</th>
+    <th>Endpoint</th>
+    <th>Description</th>
+  </tr>
+  <tr><td>PUT</td><td>/activate-kitchen/{id}</td><td>Activate kitchen</td></tr>
+  <tr><td>PUT</td><td>/suspend-kitchen/{id}</td><td>Suspend kitchen</td></tr>
+  <tr><td>PUT</td><td>/assign-kitchens/{inspectorId}</td><td>Assign kitchens to inspector</td></tr>
+  <tr><td>PUT</td><td>/reject-kitchen/{kitchenId}</td><td>Reject kitchen</td></tr>
+</table>
+
+<h3>Reports & AI Endpoints</h3>
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Method</th>
+    <th>Endpoint</th>
+    <th>Description</th>
+  </tr>
+  <tr><td>GET</td><td>/approval-report</td><td>Objection approval statistics report</td></tr>
+  <tr><td>POST</td><td>/ai/meal/validate-for-pilgrim</td><td>AI-based meal validation using pilgrim health record</td></tr>
+  <tr><td>POST</td><td>/ai/inspectors/evaluate-performance/{inspectorId}</td><td>AI-based inspector performance evaluation</td></tr>
+</table>
+
+<h3>Campaign & Health Endpoints</h3>
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Method</th>
+    <th>Endpoint</th>
+    <th>Description</th>
+  </tr>
+  <tr><td>PUT</td><td>/add-pilgrim/{pilgrimId}/{campaignId}</td><td>Add pilgrim to campaign</td></tr>
+  <tr><td>PUT</td><td>/close-registration/{campaignId}</td><td>Close campaign registration</td></tr>
+  <tr><td>GET</td><td>/classify-risk/{pilgrimId}</td><td>Classify pilgrim health risk</td></tr>
+</table>
