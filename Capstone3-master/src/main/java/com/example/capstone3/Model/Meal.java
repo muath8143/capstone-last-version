@@ -30,6 +30,7 @@ public class Meal {
     private String category;
 
     @NotEmpty(message = "Ingredients cannot be empty")
+    
     private List<String> ingredients;
 
     @ManyToOne

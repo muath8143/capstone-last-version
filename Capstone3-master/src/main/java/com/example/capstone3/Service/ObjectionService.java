@@ -95,7 +95,8 @@ public class ObjectionService {
         if (dto.getResponse() != null && !dto.getResponse().isBlank()) {
             objection.setResponse(dto.getResponse());
         }
-
+        Violation violation=objection.getViolation();
+        violation.setStatus("close");
         objectionRepository.save(objection);
     }
 

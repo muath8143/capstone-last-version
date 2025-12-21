@@ -27,7 +27,8 @@ public class N8nService {
         if (campaign==null){
             throw new ApiException("The campaign id is not exists");
         }
-        dto.setReportedAt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));        HttpHeaders headers = new HttpHeaders();
+        dto.setReportedAt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<CampaignReportDTO> requestEntity = new HttpEntity<>(dto, headers);
